@@ -10,5 +10,5 @@ import ie.daniel.webapps.atmmachine.model.AtmNotes;
 public interface AtmNotesRepository extends JpaRepository<AtmNotes, Integer> {
 	
 	@Query("SELECT SUM(m.note * m.count) FROM AtmNotes m")
-	Double getTotalAtmBalance();
+	Integer getTotalAtmBalance();
 }

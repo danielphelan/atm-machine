@@ -7,12 +7,17 @@ import javax.persistence.Id;
 public class AtmNotes {
 
 	@Id
-	private Integer id;
-
 	private Integer note;
 
 	private Integer count;
 
+	public AtmNotes() {
+		
+	}
+	
+	public AtmNotes(Integer note) {
+		this.note = note;
+	}
 	
 	public Integer getNote() {
 		return note;
@@ -30,5 +35,11 @@ public class AtmNotes {
 		this.count = count;
 	}
 
+	@Override
+	public String toString() {
+		return "AtmNotes [note=" + note + ", count=" + count + "]";
+	}
+
+	
 	
 }

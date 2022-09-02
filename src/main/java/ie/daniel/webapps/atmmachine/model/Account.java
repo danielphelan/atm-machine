@@ -1,6 +1,9 @@
 package ie.daniel.webapps.atmmachine.model;
 
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,9 +16,9 @@ public class Account {
     
     private Integer accountPin;
 
-	private Double accountBalance;
+	private BigDecimal accountBalance;
     
-    private Double accountOverdraft;
+    private BigDecimal accountOverdraft;
 
 	public Integer getAccountId() {
 		return accountId;
@@ -33,20 +36,24 @@ public class Account {
 		this.accountPin = accountPin;
 	}
 
-	public Double getAccountBalance() {
-		return accountBalance;
+	public BigDecimal getAccountBalance() {
+		return accountBalance.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	public void setAccountBalance(Double accountBalance) {
+	public void setAccountBalance(BigDecimal accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 
-	public Double getAccountOverdraft() {
-		return accountOverdraft;
+	public BigDecimal getAccountOverdraft() {
+		return accountOverdraft.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	public void setAccountOverdraft(Double accountOverdraft) {
+	public void setAccountOverdraft(BigDecimal accountOverdraft) {
 		this.accountOverdraft = accountOverdraft;
+	}
+	
+	public BigDecimal getMaximumAvailableFunds() {
+		return this.accountOverdraft.add(this.accountBalance).setScale(2, RoundingMode.HALF_EVEN);
 	}
 
 	@Override

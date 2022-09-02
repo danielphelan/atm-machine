@@ -1,25 +1,35 @@
 package ie.daniel.webapps.atmmachine.dto;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class CheckBalanceDto extends AccountDetailsDto {
 
-	private Double accountBalance;
+	private BigDecimal accountBalance;
 
-	private Double accountOverdraft;
+	private BigDecimal accountOverdraft;
+	
+	private BigDecimal maximumWithdrawal;
 
-	public Double getAccountBalance() {
-		return accountBalance;
+	public BigDecimal getAccountBalance() {
+		return accountBalance.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	public void setAccountBalance(Double accountBalance) {
+	public void setAccountBalance(BigDecimal accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 
-	public Double getAccountOverdraft() {
-		return accountOverdraft;
+	public BigDecimal getAccountOverdraft() {
+		return accountOverdraft.setScale(2, RoundingMode.HALF_EVEN);
 	}
 
-	public void setAccountOverdraft(Double accountOverdraft) {
+	public void setAccountOverdraft(BigDecimal accountOverdraft) {
 		this.accountOverdraft = accountOverdraft;
 	}
 
+	public BigDecimal getMaximumWithdrawal() {
+		this.maximumWithdrawal = this.accountBalance.add(this.accountOverdraft);
+		return this.maximumWithdrawal.setScale(2, RoundingMode.HALF_EVEN);
+	}
+	
 }

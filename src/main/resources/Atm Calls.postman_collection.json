@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "c017bed3-f051-493a-9bd3-882b0f42ab6e",
+		"name": "Atm Calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check Balance for 123456789",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/check-balance/123456789?userPin=1234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"check-balance",
+						"123456789"
+					],
+					"query": [
+						{
+							"key": "userPin",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check balance for 987654321",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/check-balance/987654321?userPin=4321",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"check-balance",
+						"987654321"
+					],
+					"query": [
+						{
+							"key": "userPin",
+							"value": "4321"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw from 123456789",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/withdraw/123456789?userPin=1234&withdrawalAmount=150",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"withdraw",
+						"123456789"
+					],
+					"query": [
+						{
+							"key": "userPin",
+							"value": "1234"
+						},
+						{
+							"key": "withdrawalAmount",
+							"value": "150"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw from 987654321",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/account/withdraw/987654321?userPin=4321&withdrawalAmount=270",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"account",
+						"withdraw",
+						"987654321"
+					],
+					"query": [
+						{
+							"key": "userPin",
+							"value": "4321"
+						},
+						{
+							"key": "withdrawalAmount",
+							"value": "270"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check available atm notes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"accountId\" : 123456789,\r\n    \"accountPin\" : 1234,\r\n    \"withdrawalAmount\": 50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/atm/check-available-notes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"atm",
+						"check-available-notes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

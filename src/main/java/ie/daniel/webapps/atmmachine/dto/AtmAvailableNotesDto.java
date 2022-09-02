@@ -7,10 +7,10 @@ import ie.daniel.webapps.atmmachine.model.AtmNotes;
 public class AtmAvailableNotesDto {
 
     private List<AtmNotes> atmNotes;
-    private Double atmBalance;
+    private Integer atmBalance;
 
     
-	public AtmAvailableNotesDto(List<AtmNotes> atmNotes, Double totalBalance) {
+	public AtmAvailableNotesDto(List<AtmNotes> atmNotes, Integer totalBalance) {
 		this.atmNotes = atmNotes;
 		this.atmBalance = totalBalance;
 	}
@@ -23,14 +23,13 @@ public class AtmAvailableNotesDto {
 		this.atmNotes = atmNotes;
 	}
 
-	public Double getAtmBalance() {
+	public Integer getAtmBalance() {
 		return atmBalance;
 	}
 
-	public void setAtmBalance(Double atmBalance) {
+	public void setAtmBalance(Integer atmBalance) {
 		this.atmBalance = atmBalance;
 	}
-    
     
     
 }
